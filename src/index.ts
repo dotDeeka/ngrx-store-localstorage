@@ -165,7 +165,7 @@ export const localStorageSync = (config: LocalStorageConfig) => (reducer: any) =
     const stateKeys = validateStateKeys(config.keys);
     const rehydratedState = config.rehydrate ? rehydrateApplicationState(stateKeys, config.storage, config.storageKeySerializer) : undefined;
 
-    return function (state = rehydratedState, action: any) {
+    return function (state, action: any) {
         /*
          Handle case where state is rehydrated AND initial state is supplied.
          Any additional state supplied will override rehydrated state for the given key.
